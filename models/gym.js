@@ -4,7 +4,10 @@ module.exports = function(sequelize, DataTypes) {
           type: DataTypes.STRING,
           allowNull: false,
           validate: {
-              len: [1, 150]
+              len: {
+                args: [1, 150],
+                msg: "Please enter a gym name with at least 1 character but no more than 150"
+              } 
           }
       },
       address: {
@@ -12,21 +15,33 @@ module.exports = function(sequelize, DataTypes) {
           allowNull: false,
           unique: true,
           validate: {
-            len: [16]
-          }
+            len: {
+              args: [16, 150],
+              msg: "Please enter a full address"
+            } 
+        }
       },
       phone_number: {
           type: DataTypes.INTEGER,
           allowNull: false,
           unique: true,
           validate: {
-            len: [11]
-          }
+            len: {
+              args: [10],
+              msg: "Please enter a phone number including area code"
+            } 
+        }
       },
       website: {
           type: DataTypes.STRING,
           allowNull: false,
-          unique: true
+          unique: true,
+          validate: {
+            len: {
+              args: [1],
+              msg: "Must enter a website"
+            } 
+        }
       }
     });
 

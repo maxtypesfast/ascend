@@ -5,24 +5,33 @@ module.exports = function(sequelize, DataTypes) {
           allowNull: false,
           unique: true,
           validate: {
-              len: [1, 20]
-          }
+            len: {
+              args: [1, 20],
+              msg: "Must include setter's name"
+            } 
+        }
       },
       role: {
           type: DataTypes.STRING,
           allowNull: false,
           unique: false,
           validate: {
-            len: [1,35]
-          }
+            len: {
+              args: [1, 50],
+              msg: "Must include setter's role"
+            } 
+        }
       },
       bio: {
           type: DataTypes.TEXT,
           allowNull: false,
           unique: false,
           validate: {
-            len: [1]
-          }
+            len: {
+              args: [1],
+              msg: "Must include a bio for setter"
+            } 
+        }
       }
     });
 
