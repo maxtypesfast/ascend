@@ -1,7 +1,7 @@
 module.exports = function (sequelize, DataTypes) {
     var Problem = sequelize.define("Problem", {
         grade: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: {
@@ -38,6 +38,26 @@ module.exports = function (sequelize, DataTypes) {
                 len: {
                     args: [1],
                     msg: "Must include a description"
+                }
+            }
+        },
+        setDay: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            validate: {
+                len: {
+                    args: [2],
+                    msg: "Must enter day in 00 format"
+                }
+            }
+        },
+        setMonth: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            validate: {
+                len: {
+                    args: [2],
+                    msg: "Must enter month as 00 format"
                 }
             }
         },
