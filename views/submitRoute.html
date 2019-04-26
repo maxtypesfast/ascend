@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="/public/assets/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Route Submission</title>
+</head>
+
+<body>
+    <form>
+        <h2>Submit a Route</h2>
+        <div class="form-group">
+            <label for="routeName">Route Name</label>
+            <input type="text" class="form-control" id="routeName">
+        </div>
+        <div class="form-group">
+            <label for="grade">Grade</label>
+            <select class="form-control" id="grade">
+                <option>V0</option>
+                <option>V1</option>
+                <option>V2</option>
+                <option>V3</option>
+                <option>V4</option>
+                <option>V5</option>
+                <option>V5</option>
+                <option>V6</option>
+                <option>V7</option>
+                <option>V8</option>
+                <option>V9</option>
+                <option>V10</option>
+                <option>V11</option>
+                <option>V12</option>
+                <option>V13</option>
+                <option>V14</option>
+                <option>V15</option>
+                <option>V16</option>
+                <option>V17</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="routeType">Type</label>
+            <select class="form-control" id="routeType" default="Bouldering">
+                <option>Bouldering</option>
+                <option>Sport</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="routeLocation">Location</label>
+            <input type="text" class="form-control" id="routeLocation">
+        </div>
+        <div class="form-group">
+                <label for="routeSetDate">Date</label>
+                <input type="date" class="form-control" id="routeSetDate">
+            </div>
+        <div class="form-group">
+            <label for="routeImg">Picture of Route (Please submit image url.)</label>
+            <input type="text" class="form-control" id="routeImg">
+        </div>
+        <div class="form-group">
+            <label for="routeActive">Active</label>
+            <select class="form-control" id="routeActive">
+                <option value=true>Active</option>
+                <option value=false>Inactive</option>
+            </select>
+        </div>
+        <div class="form-group">
+                <label for="routeSetter">Route Setter</label>
+                <input type="text" class="form-control" id="routeSetter">
+            </div>
+        <div class="form-group">
+            <label for="routeDescription">Description</label>
+            <textarea class="form-control" id="routeDescription" rows="3"></textarea>
+        </div>
+        <button id="routeSubmission">Submit Route</button>
+    </form>
+
+</body>
+
+</html>
