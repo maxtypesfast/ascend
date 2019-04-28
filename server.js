@@ -1,5 +1,6 @@
 // Dependencies
 var express = require("express");
+var exphbs = require("express-handlebars");
 
 // Setting up express 
 var app = express();
@@ -14,6 +15,9 @@ app.use(express.json());
 
 // See all the things in public
 app.use(express.static("public"));
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 // Routes (not the climbing type -_0)
 require("./routes/html-routes.js")(app);
