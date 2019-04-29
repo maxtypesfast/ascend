@@ -15,15 +15,17 @@ app.use(express.json());
 
 // See all the things in public
 app.use(express.static("public"));
+app.use(express.static("views"));
+
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Routes (not the climbing type -_0)
-require("./routes/html-routes.js")(app);
 require("./routes/gym-routes.js")(app);
 require("./routes/problem-routes.js")(app);
 require("./routes/setter-routes.js")(app);
+require("./routes/html-routes.js")(app);
 
 // Syncing models and then starting express app
 model.sequelize.sync({ force: true }).then( async () => {

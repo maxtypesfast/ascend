@@ -4,9 +4,9 @@ module.exports = (app) => {
     app.get("/api/problems", (req, res) => {
         model.Problem.findAll({
             include: [model.Gym, model.Setter]
-        }).then((dbProblem) => {
-            console.log(dbProblem);
-            res.json(dbProblem);
+        }).then(problems => {
+            console.log(problems);
+            res.render('results', {problems});
         });
     });
 
