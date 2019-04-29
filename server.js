@@ -15,6 +15,8 @@ app.use(express.json());
 
 // See all the things in public
 app.use(express.static("public"));
+app.use(express.static("views"));
+
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
