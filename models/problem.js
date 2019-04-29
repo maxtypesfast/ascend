@@ -75,10 +75,11 @@ module.exports = function (sequelize, DataTypes) {
 
     Problem.associate = (models) => {
         models.Problem.belongsTo(models.Gym, {
-            onDelete: "CASCADE"
+        
         });
+
         models.Problem.belongsTo(models.Setter, {
-            onDelete: "CASCADE"
+        
         });
     };
 

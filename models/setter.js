@@ -36,7 +36,9 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   Setter.associate = (models) => {
-    models.Setter.hasMany(models.Problem);
+    models.Setter.hasMany(models.Problem, {
+      onDelete: "cascade"
+    });
   };
 
   return Setter;
