@@ -9,4 +9,8 @@ module.exports = (app) => {
     app.get("/results", (req, res) => {
         res.render("results");
     });
+
+    app.get("/submitRoute", (req, res) =>{
+        res.render("submitRoute")
+    })
 }
