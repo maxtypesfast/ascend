@@ -3,22 +3,22 @@ var model = require("../models");
 module.exports = (app) => {
     app.get("/api/gyms", (req, res) => {
         model.Gym.findAll({
-            include: [model.Problem]
+            include: [{model: Problem}]
         }).then(gyms => {
             res.render('results', {gyms});
         });
     });
 
-    // app.get("/api/gyms/:name", (req, res) => {
-    //     model.Gym.findOne({
-    //         where: {
-    //             name: req.params.name
-    //         },
-    //         include: [model.Problem]
-    //     }).then(gyms =>{
-    //         res.render('results', {gyms});
-    //     });
-    // });
+    app.get("/api/gyms/name/:name", (req, res) => {
+        model.Gym.findOne({
+            where: {
+                name: req.body.name
+            },
+            include: [{model: Problem}]
+        }).then(gyms => {
+            res.render('results', {gyms});
+        });
+    });
 
     app.post("/api/gyms", (req, res) => {
         model.Gym.create(req.body).then(gyms => {
