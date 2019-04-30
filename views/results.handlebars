@@ -1,6 +1,32 @@
-
-<div id = "reultsWrapper">
+<div id="reultsWrapper">
     <div>
-        dump results here
+        <ul>
+            {{#each Gym}}
+            <li>
+                <p>Gym name: {{name}}</p>
+                <p>Address: {{address}}</p>
+                <p>Phone Number: {{phone_number}}</p>
+                <p>Website {{website}}</p>
+            </li>
+            {{/each}}
+            {{#each Problem}}
+            <li>
+                <img src={{photo}} width="400" height="400">
+                <p>Grade: {{grade}}</p>
+                <p>Color: {{color}}</p>
+                <p>Wall: {{wall}}</p>
+                <p>Description: {{description}}</p>
+                <p>Day: {{setDay}}</p>
+                <p>Month: {{setMonth}}</p>
+            </li>
+            {{/each}}
+            {{#each Setter}}
+            <li>
+                <p>Route Setter:{{name}}</p>
+                <p>Role:{{role}}</p>
+                <p>Biography:{{bio}}</p>
+            </li>
+            {{/each}}
+        </ul>
     </div>
 </div>
