@@ -1,5 +1,15 @@
 $(document).ready(function () {
     var searchInput = $('.form-control');
+    var routeName = $('#routeName').val().trim();
+    var grade = $('#grade').val().trim();
+    var routeType = $('#routeType').val().trim();
+    var routeLocation = $('#routeLocation').val().trim();
+    var routeSetDate = $('#routeSetDate').val().trim();
+    var routeImg = $('#routeImg').val().trim();
+    var routeActive = $('#routeActive').val().trim();
+    var routeSetter = $('#routeSetter').val().trim();
+    var routeDescription = $('#routeDescription').val().trim();
+
 
 
     // event.preventDefault();
@@ -14,25 +24,41 @@ $(document).ready(function () {
             // console.log(req.body);
             window.location.replace('/results');
         })
-    
+
     });
 
 
-    $('#routeSubmission').click(function () {
+    // $('#routeSubmission').click(function () {
+
+    // });
+
+$(document).on("submit", "#routeSubmission", handleProblemSubmit);
+
+    function handleProblemSubmit(event) {
         event.preventDefault();
-        console.log('submit');
-        var routeName = $('#routeName').val().trim();
-        var grade = $('#grade').val().trim();
-        var routeType = $('#routeType').val().trim();
-        var routeLocation = $('#routeLocation').val().trim();
-        var routeSetDate = $('#routeSetDate').val().trim();
-        var routeImg = $('#routeImg').val().trim();
-        var routeActive = $('#routeActive').val().trim();
-        var routeSetter = $('#routeSetter').val().trim();
-        var routeDescription = $('#routeDescription').val().trim();
-        console.log(routeName, grade, routeType, routeLocation, routeSetDate)
-        getRoutes();
+        if (!routeName.val().trim()) {
+            return;
+        }
+    }
+    createProblem({
+        routeName: routeName,
+        grade: grade,
+        routeColor: routeColor,
+        routeType: routeType,
+        routeLocation: routeLocation,
+        routeSetDate: routeSetDate,
+        routeImg: routeImg,
+        routeActive: routeActive,
+        routeSetter: routeSetter,
+        routeDescription: routeDescription
     })
+
+    function createProblem(probData) {
+        // event.preventDefault();
+        $.post('/api/problems', probData).then((res) => {
+            console.log(res.body);
+        });
+    };
 
     $('#login').click(function () {
         $("#loginModal").modal();
@@ -57,9 +83,9 @@ $(document).ready(function () {
     // }
 
     function getRoutes() {
-        $.get("/api/routes", function(data) {
+        $.get("/api/routes", function (data) {
             var rowstoAdd = [];
-            for (var i =0; i < data.length; i++) {
+            for (var i = 0; i < data.length; i++) {
                 rowstoAdd.push(createAuthorRow(data[i]));
             }
         })
