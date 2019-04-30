@@ -34,19 +34,19 @@
             <div class="carousel-item active">
                 <img src="/assets/images/foot.jpg" alt="foot" width="100%" height="600">
                 <div class="carousel-caption">
-                    <h1>climb</h1>
+                    <p>climb</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="/assets/images/kidsClimbing.jpg" alt=" kids" width="100%" height="600">
                 <div class="carousel-caption">
-                    <h1>elevate</h1>
+                    <p>elevate</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="/assets/images/topRope.jpg" alt=" topRope" width="100%" height="600">
                 <div class="carousel-caption">
-                    <h1>ascend</h1>
+                    <p>ascend</p>
                 </div>
             </div>
         </div>
@@ -61,18 +61,17 @@
 
 </div>
 <div id="description">
-    <h4>
-        The scope of ascend is to provide a method for climbing enthusiasts to share their favorite routes, or
-        "problems", at their local indoor climbing gym.
-        Allow routesetters to catalog all their previously set problems. And allow other routesetters to replicate
-        problems with ease.
-    </h4>
+    <p>
+        Ascend provides a method for climbing enthusiasts to share their favorite routes at their
+        local indoor climbing gym.
+        Routesetters can catalog all their previously set routes so other routesetters can replicate the wall with ease.
+    </p>
 </div>
 
 <form action="/api/problems" method="GET">
 
     <div class="md-form active-pink active-pink-2 mb-3 mt-0">
-        <input class="form-control" type="text" placeholder="Search" name="" aria-label="Search">
+        <input class="form-control" type="text" placeholder="Search for gym, setter, route, etc." name="" aria-label="Search">
     </div>
-    <button type="submit" id="submitMain">submit</button>
+    <button type="button" id="submitMain" class="btn btn-secondary btn-lg">Submit</button>
 </form>
