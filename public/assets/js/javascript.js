@@ -41,7 +41,7 @@ $(document).on("submit", "#routeSubmission", handleProblemSubmit);
         }
     }
     createProblem({
-        routeName: routeName,
+        routeName: $('#routeName').val().trim(),
         grade: grade,
         routeColor: routeColor,
         routeType: routeType,
