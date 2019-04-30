@@ -25,7 +25,7 @@
 <div id="reultsWrapper">
     <div>
         <ul>
-            {{#each Gym}}
+            {{#each gyms}}
             <li>
                 <p>Gym name: {{name}}</p>
                 <p>Address: {{address}}</p>
@@ -33,7 +33,7 @@
                 <p>Website {{website}}</p>
             </li>
             {{/each}}
-            {{#each Problem}}
+            {{#each problems}}
             <li>
                 <img src={{photo}} width="400" height="400">
                 <p>Grade: {{grade}}</p>
@@ -44,7 +44,7 @@
                 <p>Month: {{setMonth}}</p>
             </li>
             {{/each}}
-            {{#each Setter}}
+            {{#each setters}}
             <li>
                 <p>Route Setter:{{name}}</p>
                 <p>Role:{{role}}</p>

@@ -1,28 +1,38 @@
-h4{
-    font-family: 'Raleway', sans-serif
+h2{
+  text-align: center;
 }
 
-  body {
-    width: 100%;
-    background-color: grey;
-  }
-  
-  #description{
-    background-color:white;
-    padding:20px;
-    width: 80%;
-    margin-left:10%;
-  }
 
-  form{
-    border-right-style: dotted;
-    border-left-style: dotted;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-top:25px;
-  }
-
-  #routeSubmission{
-    margin-left:44%;
-  }
+body {
+  width: 100%;
+  background-color: grey;
+}
   
+#description{
+  background-color:white;
+  padding:20px;
+  width: 92%;
+  margin-left:5%;
+  font-size:36px;
+  font-family: 'Raleway', sans-serif
+}
+
+form{
+  border-right-style: dotted;
+  border-left-style: dotted;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top:25px;
+}
+
+.btn{
+  margin-left:44%;
+  margin-bottom:50px;
+}
+
+div.carousel-caption{
+  font-size:72px;
+  font-family: 'Dosis', sans-serif;
+  position: absolute;
+  left: -400px;
+}
