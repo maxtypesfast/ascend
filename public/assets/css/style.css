@@ -14,4 +14,15 @@ h4{
     margin-left:10%;
   }
 
+  form{
+    border-right-style: dotted;
+    border-left-style: dotted;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top:25px;
+  }
+
+  #routeSubmission{
+    margin-left:44%;
+  }
   
