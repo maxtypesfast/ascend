@@ -33,6 +33,7 @@ module.exports = (app) => {
 
     app.post("/api/problems", (req, res) => {
         model.Problem.create(req.body).then((dbProblem) => {
+            console.log('post problems')
             console.log(dbProblem);
             res.json(dbProblem);
         });

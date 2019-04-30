@@ -1,18 +1,26 @@
 $(document).ready(function () {
-    var searchInput = $('.form-control');
-    var routeName = $('#routeName').val().trim();
-    var grade = $('#grade').val().trim();
-    var routeType = $('#routeType').val().trim();
-    var routeLocation = $('#routeLocation').val().trim();
-    var routeSetDate = $('#routeSetDate').val().trim();
-    var routeImg = $('#routeImg').val().trim();
-    var routeActive = $('#routeActive').val().trim();
-    var routeSetter = $('#routeSetter').val().trim();
-    var routeDescription = $('#routeDescription').val().trim();
+    var searchInput;
+    var grade;
+    var routeImg;
+    var routeDescription;
+    var setDay;
+    var setMonth;
 
+    var gymName;
+    var gymAddress;
+    var gymPhone;
+    var gymWebsite;
+    var gymId;
 
+    var setterName;
+    var setterRole;
+    var setterBio;
+    var setterId;
 
-    // event.preventDefault();
+    let routeObj = {};
+    let gymObj = {};
+    let setterObj = {};
+
     $('#submitMain').click(function () {
         event.preventDefault();
         console.log(searchInput.val().trim());
@@ -21,78 +29,103 @@ $(document).ready(function () {
             url: "/api/problems"
         }).then(function (res, req) {
             console.log(res);
-            // console.log(req.body);
             window.location.replace('/results');
         })
 
     });
 
 
-    // $('#routeSubmission').click(function () {
-
-    // });
-
-$(document).on("submit", "#routeSubmission", handleProblemSubmit);
+    $(document).on("click", "#routeSubmission", handleProblemSubmit);
 
     function handleProblemSubmit(event) {
         event.preventDefault();
-        if (!routeName.val().trim()) {
-            return;
+        console.log('handle');
+
+        var date = $('#routeSetDate').val();
+        formatDate(date);
+
+        grade = $('#grade').val().trim();
+        routeImg = $('#routeImg').val().trim();
+        routeDescription = $('#routeDescription').val().trim();
+        routeColor = $('#routeColor').val().trim();
+
+        gymName = $('#gymName').val().trim();
+        gymAddress = $('#gymAddress').val().trim();
+        gymPhone = $('#gymPhone').val().trim();
+        gymWebsite = $('#gymWebsite').val().trim();
+
+        setterName = $('#setterName').val().trim();
+        setterRole = $('#setterRole').val().trim();
+        setterBio = $('#setterBio').val().trim();
+
+        gymObj = {
+            name: gymName,
+            address: gymAddress,
+            phone_number: gymPhone,
+            website: gymWebsite,
+            GymId: gymId
         }
+
+        setterObj = {
+            name: setterName,
+            role: setterRole,
+            bio: setterBio,
+            SetterId: setterId
+        }
+
+        GymSetter();
+
+        async function GymSetter() {
+            await createGym(gymObj);
+            await createSetter(setterObj);
+        }
+
+
+        console.log('gymid ' + gymId);
+        console.log('setterId ' + setterId);
+        routeObj = {
+            grade: grade,
+            color: routeColor,
+            setDay: setDay,
+            setMonth: setMonth,
+            photo: routeImg,
+            description: routeDescription,
+            GymId: gymId,
+            SetterId: setterId
+        }
+        createProblem(routeObj);
     }
-    createProblem({
-        routeName: $('#routeName').val().trim(),
-        grade: grade,
-        routeColor: routeColor,
-        routeType: routeType,
-        routeLocation: routeLocation,
-        routeSetDate: routeSetDate,
-        routeImg: routeImg,
-        routeActive: routeActive,
-        routeSetter: routeSetter,
-        routeDescription: routeDescription
-    })
+
+
+    function formatDate(date) {
+        var month = date.charAt(5) + date.charAt(6);
+        var day = date.charAt(8) + date.charAt(9);
+        setDay = day;
+        setMonth = month;
+
+    }
+
+    async function createGym(gymData) {
+        $.post('/api/gyms', gymData).then((res) => {
+            gymId = res.id;
+        });
+    }
+
+    async function createSetter(setterData) {
+        $.post('/api/setters', setterData).then((res) => {
+            setterId = res.id;
+        });
+    }
+
+
 
     function createProblem(probData) {
+        // var jsonObject = (JSON.stringify(probData))
         // event.preventDefault();
         $.post('/api/problems', probData).then((res) => {
-            console.log(res.body);
+
+            console.log('test' + res.body);
         });
     };
-
-    $('#login').click(function () {
-        $("#loginModal").modal();
-        //launch login modal
-    })
-
-    // $('........login modal.......').click(function() {
-    //     event.preventDefault();
-    //     console.log()
-    // })
-
-    $('#signUp').click(function () {
-        $("#signUpModal").modal();
-        //launch signup modal
-    })
-
-    // function handleSubmit(event) {
-    //     event.preventDefault();
-    //     if (!nameInput.val().trim()) {
-    //         return;
-    //     }
-    // }
-
-    function getRoutes() {
-        $.get("/api/routes", function (data) {
-            var rowstoAdd = [];
-            for (var i = 0; i < data.length; i++) {
-                rowstoAdd.push(createAuthorRow(data[i]));
-            }
-        })
-    }
-
-    function renderRoutesList() {
-        routesList
-    }
 
 }); //ready wrapper end

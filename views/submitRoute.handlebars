@@ -1,70 +1,85 @@
     <form>
-        <h2>Submit a Route</h2>
+
+        <h2>Submit a Gym</h2>
         <div class="form-group">
-            <label for="routeName">Route Name</label>
-            <input type="text" class="form-control" id="routeName">
+          <label for="routeLocation">Gym Name</label>
+          <input type="text" class="form-control" id="gymName" />
         </div>
         <div class="form-group">
-            <label for="grade">Grade</label>
-            <select class="form-control" id="grade">
-                <option>V0</option>
-                <option>V1</option>
-                <option>V2</option>
-                <option>V3</option>
-                <option>V4</option>
-                <option>V5</option>
-                <option>V5</option>
-                <option>V6</option>
-                <option>V7</option>
-                <option>V8</option>
-                <option>V9</option>
-                <option>V10</option>
-                <option>V11</option>
-                <option>V12</option>
-                <option>V13</option>
-                <option>V14</option>
-                <option>V15</option>
-                <option>V16</option>
-                <option>V17</option>
-            </select>
+          <label for="routeLocation">Address</label>
+          <input type="text" class="form-control" id="gymAddress" />
         </div>
         <div class="form-group">
-            <label for="routeColor">Color</label>
-            <input type="text" class="form-control" id="routeColor">
+          <label for="routeLocation">Phone Number</label>
+          <input type="text" class="form-control" id="gymPhone" />
         </div>
         <div class="form-group">
-            <label for="routeType">Type</label>
-            <select class="form-control" id="routeType" default="Bouldering">
-                <option>Bouldering</option>
-                <option>Sport</option>
-            </select>
+          <label for="routeLocation">Website</label>
+          <input type="text" class="form-control" id="gymWebsite" />
+        </div>
+
+        <h2>Submit a Route Setter</h2>
+        <div class="form-group">
+          <label for="routeLocation">Name</label>
+          <input type="text" class="form-control" id="setterName" />
         </div>
         <div class="form-group">
-            <label for="routeLocation">Location</label>
-            <input type="text" class="form-control" id="routeLocation">
+          <label for="routeLocation">Role</label>
+          <input type="text" class="form-control" id="setterRole" />
         </div>
         <div class="form-group">
-            <label for="routeSetDate">Date</label>
-            <input type="date" class="form-control" id="routeSetDate">
+          <label for="routeLocation">Bio</label>
+          <input type="text" class="form-control" id="setterBio" />
+        </div>
+
+        <h2>Submit a Climbing Route</h2>
+        <div class="form-group">
+          <label for="grade">Grade</label>
+          <select class="form-control" id="grade">
+            <option>V0</option>
+            <option>V1</option>
+            <option>V2</option>
+            <option>V3</option>
+            <option>V4</option>
+            <option>V5</option>
+            <option>V5</option>
+            <option>V6</option>
+            <option>V7</option>
+            <option>V8</option>
+            <option>V9</option>
+            <option>V10</option>
+            <option>V11</option>
+            <option>V12</option>
+            <option>V13</option>
+            <option>V14</option>
+            <option>V15</option>
+            <option>V16</option>
+            <option>V17</option>
+          </select>
         </div>
         <div class="form-group">
-            <label for="routeImg">Picture of Route (Please submit image url.)</label>
-            <input type="text" class="form-control" id="routeImg">
+          <label for="routeColor">Color</label>
+          <input type="text" class="form-control" id="routeColor" />
         </div>
         <div class="form-group">
-            <label for="routeActive">Active</label>
-            <select class="form-control" id="routeActive">
-                <option value=true>Active</option>
-                <option value=false>Inactive</option>
-            </select>
+          <label for="routeSetDate">Date</label>
+          <input type="date" class="form-control" id="routeSetDate" />
         </div>
         <div class="form-group">
-            <label for="routeSetter">Route Setter</label>
-            <input type="text" class="form-control" id="routeSetter">
+          <label for="routeImg"
+            >Picture of Route (Please submit image url.)</label
+          >
+          <input type="text" class="form-control" id="routeImg" />
         </div>
         <div class="form-group">
-            <label for="routeDescription">Description</label>
-            <textarea class="form-control" id="routeDescription" rows="3"></textarea>
+          <label for="routeDescription">Description</label>
+          <textarea
+            class="form-control"
+            id="routeDescription"
+            rows="3"
+          ></textarea>
         </div>
         <button id="routeSubmission">Submit Route</button>
+
     </form>
+
