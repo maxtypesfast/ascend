@@ -4,25 +4,25 @@ module.exports = (app) => {
     app.get("/api/gyms", (req, res) => {
         model.Gym.findAll({
             include: [model.Problem]
-        }).then((dbGym) => {
-            res.json(dbGym);
+        }).then(gyms => {
+            res.render('results', {gyms});
         });
     });
 
-    app.get("/api/gyms/:name", (req, res) => {
-        model.Gym.findOne({
-            where: {
-                name: req.params.name
-            },
-            include: [model.Problem]
-        }).then((dbGym) =>{
-            res.json(dbGym);
-        });
-    });
+    // app.get("/api/gyms/:name", (req, res) => {
+    //     model.Gym.findOne({
+    //         where: {
+    //             name: req.params.name
+    //         },
+    //         include: [model.Problem]
+    //     }).then(gyms =>{
+    //         res.render('results', {gyms});
+    //     });
+    // });
 
     app.post("/api/gyms", (req, res) => {
-        model.Gym.create(req.body).then((dbGym) => {
-            res.json(dbGym);
+        model.Gym.create(req.body).then(gyms => {
+            res.json(gyms);
         });
     });
 
