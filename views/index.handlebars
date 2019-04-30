@@ -68,10 +68,18 @@
     </p>
 </div>
 
-<form action="/api/problems" method="GET">
+<form>
+    {{!-- //action="/api/problems" method="GET" --}}
+    <select id="searchSelect">
+        <option value='/api/gyms/name/'>Gym Name</option>
+        <option value='/api/problems/grade/'>Problem Grade</option>
+        <option value='/api/problems/color/'>Problem Color</option>
+
+    </select>
 
     <div class="md-form active-pink active-pink-2 mb-3 mt-0">
-        <input class="form-control" type="text" placeholder="Search for gym, setter, route, etc." name="" aria-label="Search">
+        <input id='searchInput' class="form-control" type="text" placeholder="Search for gym, setter, route, etc." name=""
+            aria-label="Search">
     </div>
     <button type="button" id="submitMain" class="btn btn-secondary btn-lg">Submit</button>
 </form>
