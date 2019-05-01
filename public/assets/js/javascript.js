@@ -24,10 +24,8 @@ $(document).ready(function () {
     $('#submitMain').click(function () {
         event.preventDefault();
         var select = $('#searchSelect').val();
-        console.log(select);
         var search = $('#searchInput').val().trim();
         var querySearch = select + search;
-        console.log(search);
         window.location = querySearch;
         $.get(querySearch, function(data) {
             console.log(data);
@@ -39,7 +37,6 @@ $(document).ready(function () {
 
     function handleProblemSubmit(event) {
         event.preventDefault();
-        console.log('handle');
 
         var date = $('#routeSetDate').val();
         formatDate(date);
@@ -81,8 +78,6 @@ $(document).ready(function () {
         };
 
 
-        console.log('gymid ' + gymId);
-        console.log('setterId ' + setterId);
         routeObj = {
             grade: grade,
             color: routeColor,
@@ -121,8 +116,6 @@ $(document).ready(function () {
 
 
     function createProblem(probData) {
-        // var jsonObject = (JSON.stringify(probData))
-        // event.preventDefault();
         $.post('/api/problems', probData).then((res) => {
 
             console.log('test' + res.body);
