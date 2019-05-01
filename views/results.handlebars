@@ -35,15 +35,25 @@
             {{/each}}
             {{#each problems}}
             <li>
-                <img src={{photo}} width="400" height="400">
-                <p>Grade: {{grade}}</p>
-                <p>Color: {{color}}</p>
-                <p>Wall: {{wall}}</p>
-                <p>Description: {{description}}</p>
-                <p>Day: {{setDay}}</p>
-                <p>Month: {{setMonth}}</p>
-                <p>Gym Name: {{Gym.name}}</p>
-                <p>Setter Name: {{Setter.name}}</p>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <img src={{photo}} width="150" height="150">
+                        </div>
+                        <div class="col-sm">
+                            <p>Grade: {{grade}}</p>
+                            <p>Color: {{color}}</p>
+                            <p>Gym Name: {{Gym.name}}</p>
+                            <p>Wall: {{wall}}</p>
+                        </div>
+                        <div class="col-sm">
+                            <p>Description: {{description}}</p>
+                            <p>Setter Name: {{Setter.name}}</p>
+                            <p>Day: {{setDay}}</p>
+                            <p>Month: {{setMonth}}</p>
+                        </div>
+                    </div>
+                </div>
             </li>
             {{/each}}
             {{#each setters}}
