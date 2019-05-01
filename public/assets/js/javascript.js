@@ -30,8 +30,7 @@ $(document).ready(function () {
             querySearch = '/api/problems'
         }
         window.location = querySearch;
-        $.get(querySearch, function (data) {
-        });
+        $.get(querySearch, function (data) {});
     });
 
 
@@ -79,7 +78,6 @@ $(document).ready(function () {
             await createSetter(setterObj);
         };
 
-
         routeObj = {
             grade: grade,
             color: routeColor,
@@ -92,8 +90,8 @@ $(document).ready(function () {
         };
 
         createProblem(routeObj);
-        var home = '/'
-        window.location=home;
+
+
     }
 
 
@@ -108,12 +106,14 @@ $(document).ready(function () {
     async function createGym(gymData) {
         $.post('/api/gyms', gymData).then((res) => {
             gymId = res.id;
+            return gymId
         });
     }
 
     async function createSetter(setterData) {
         $.post('/api/setters', setterData).then((res) => {
             setterId = res.id;
+            return setterId
         });
     }
 
@@ -121,6 +121,8 @@ $(document).ready(function () {
 
     function createProblem(probData) {
         $.post('/api/problems', probData).then((res) => {
+            // var home = '/'
+            // window.location = home;
 
         });
     };
