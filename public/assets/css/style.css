@@ -2,19 +2,37 @@ h2{
   text-align: center;
 }
 
+#querySearch{
+  margin-top:50px;
+  margin-right:80px;
+}
+
+#siteName{
+  text-align: center;
+  font-size:64px;
+  margin-left:39%;
+
+}
 
 body {
   width: 100%;
   background-color: grey;
 }
   
+#myCarousel{
+  padding-bottom: 5px;
+}
+
 #description{
-  background-color:white;
-  padding:20px;
-  width: 92%;
-  margin-left:5%;
-  font-size:36px;
-  font-family: 'Raleway', sans-serif
+  padding:15px;
+  width: 78%;
+  margin-left:11%;
+  margin-bottom:20px;
+  font-size:32px;
+  font-family: 'Raleway', sans-serif;
+  border-style: solid;
+  border-width: 1px;
+  text-align:justify;
 }
 
 form{
