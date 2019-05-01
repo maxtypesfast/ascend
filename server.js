@@ -28,7 +28,7 @@ require("./routes/setter-routes.js")(app);
 require("./routes/html-routes.js")(app);
 
 // Syncing models and then starting express app
-model.sequelize.sync({ force: true }).then( async () => {
+model.sequelize.sync({ }).then( async () => {
     let gym = await model.Gym.create({
         name: "Gold's Gym",
         address: "1234 fake Street westwood, ca 56789",
