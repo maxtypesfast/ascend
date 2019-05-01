@@ -43,13 +43,13 @@ model.sequelize.sync({ force: true }).then( async () => {
     });
 
     model.Problem.create({
-        grade: "V17",
+        grade: "V3",
         color: "Green",
         wall: "East Wall",
-        description: "It's hard",
+        description: "While designed for a novice, this route is populated with smaller hand holds which will test grip strength. ",
         setDay: "11",
         setMonth: "04",
-        photo: "www.photoOfWall.com",
+        photo: "https://i.pinimg.com/474x/3d/d5/ce/3dd5ceab37b156cb9b4c4c3233413aa9.jpg",
         GymId: gym.id,
         SetterId: setter.id
     });
