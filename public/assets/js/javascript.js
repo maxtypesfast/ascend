@@ -26,6 +26,9 @@ $(document).ready(function () {
         var select = $('#searchSelect').val();
         var search = $('#searchInput').val().trim();
         var querySearch = select + search;
+        if (!search) {
+            querySearch = '/api/problems'
+        }
         window.location = querySearch;
         $.get(querySearch, function(data) {
             console.log(data);
