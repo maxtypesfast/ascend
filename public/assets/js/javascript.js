@@ -26,10 +26,17 @@ $(document).ready(function () {
         var select = $('#searchSelect').val();
         var search = $('#searchInput').val().trim();
         var querySearch = select + search;
-        window.location = querySearch;
-        $.get(querySearch, function(data) {
+        if (!search) {
+            console.log('no search');
+            querySearch = '/api/problems'
+            window.location = querySearch;
+        } else {
+            window.location = querySearch;
+        }
+        $.get(querySearch, function (data) {
             console.log(data);
         });
+
     });
 
 
