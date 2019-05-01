@@ -30,8 +30,7 @@ $(document).ready(function () {
             querySearch = '/api/problems'
         }
         window.location = querySearch;
-        $.get(querySearch, function(data) {
-            console.log(data);
+        $.get(querySearch, function (data) {
         });
     });
 
@@ -93,6 +92,8 @@ $(document).ready(function () {
         };
 
         createProblem(routeObj);
+        var home = '/'
+        window.location=home;
     }
 
 
@@ -121,7 +122,6 @@ $(document).ready(function () {
     function createProblem(probData) {
         $.post('/api/problems', probData).then((res) => {
 
-            console.log('test' + res.body);
         });
     };
 
