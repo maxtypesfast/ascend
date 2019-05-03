@@ -4,6 +4,7 @@
   "description": "mvp to catalog climbs add some text",
   "main": "index.js",
   "scripts": {
+    "start": "node server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/maxtypesfast/ascend#readme",
   "dependencies": {
+    "dotenv": "^7.0.0",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.2",
     "mysql2": "^1.6.5",
