@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    var searchInput;
     var grade;
     var routeImg;
     var routeDescription;
@@ -33,12 +32,11 @@ $(document).ready(function () {
         $.get(querySearch, function (data) {});
     });
 
-
     $(document).on("click", "#routeSubmission", handleProblemSubmit);
 
     function handleProblemSubmit(event) {
         event.preventDefault();
-
+        
         var date = $('#routeSetDate').val();
         formatDate(date);
 
@@ -76,31 +74,19 @@ $(document).ready(function () {
         async function GymSetter() {
             await createGym(gymObj);
             await createSetter(setterObj);
+            await createProblem(routeObj);
+            $("#submitModal").modal("show");
         };
 
-        routeObj = {
-            grade: grade,
-            color: routeColor,
-            setDay: setDay,
-            setMonth: setMonth,
-            photo: routeImg,
-            description: routeDescription,
-            GymId: gymId,
-            SetterId: setterId
-        };
-
-        createProblem(routeObj);
-
+      
 
     }
-
 
     function formatDate(date) {
         var month = date.charAt(5) + date.charAt(6);
         var day = date.charAt(8) + date.charAt(9);
         setDay = day;
         setMonth = month;
-
     }
 
     async function createGym(gymData) {
@@ -117,14 +103,19 @@ $(document).ready(function () {
         });
     }
 
-
-
-    function createProblem(probData) {
-        $.post('/api/problems', probData).then((res) => {
-            // var home = '/'
-            // window.location = home;
-
-        });
+    async function createProblem(probData) {
+        console.log(gymId);
+        console.log(setterId);
+        routeObj = {
+            grade: grade,
+            color: routeColor,
+            setDay: setDay,
+            setMonth: setMonth,
+            photo: routeImg,
+            description: routeDescription,
+            GymId: gymId,
+            SetterId: setterId
+        };
+        $.post('/api/problems', probData).then((res) => {});
     };
-
 });
