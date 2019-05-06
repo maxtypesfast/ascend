@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    var searchInput;
     var grade;
     var routeImg;
     var routeDescription;
@@ -30,16 +29,14 @@ $(document).ready(function () {
             querySearch = '/api/problems'
         }
         window.location = querySearch;
-        $.get(querySearch, function (data) {
-        });
+        $.get(querySearch, function (data) {});
     });
-
 
     $(document).on("click", "#routeSubmission", handleProblemSubmit);
 
     function handleProblemSubmit(event) {
         event.preventDefault();
-
+        
         var date = $('#routeSetDate').val();
         formatDate(date);
 
@@ -77,9 +74,38 @@ $(document).ready(function () {
         async function GymSetter() {
             await createGym(gymObj);
             await createSetter(setterObj);
+            await createProblem(routeObj);
+            $("#submitModal").modal("show");
         };
 
+      
 
+    }
+
+    function formatDate(date) {
+        var month = date.charAt(5) + date.charAt(6);
+        var day = date.charAt(8) + date.charAt(9);
+        setDay = day;
+        setMonth = month;
+    }
+
+    async function createGym(gymData) {
+        $.post('/api/gyms', gymData).then((res) => {
+            gymId = res.id;
+            return gymId
+        });
+    }
+
+    async function createSetter(setterData) {
+        $.post('/api/setters', setterData).then((res) => {
+            setterId = res.id;
+            return setterId
+        });
+    }
+
+    async function createProblem(probData) {
+        console.log(gymId);
+        console.log(setterId);
         routeObj = {
             grade: grade,
             color: routeColor,
@@ -90,39 +116,6 @@ $(document).ready(function () {
             GymId: gymId,
             SetterId: setterId
         };
-
-        createProblem(routeObj);
-        var home = '/'
-        window.location=home;
-    }
-
-
-    function formatDate(date) {
-        var month = date.charAt(5) + date.charAt(6);
-        var day = date.charAt(8) + date.charAt(9);
-        setDay = day;
-        setMonth = month;
-
-    }
-
-    async function createGym(gymData) {
-        $.post('/api/gyms', gymData).then((res) => {
-            gymId = res.id;
-        });
-    }
-
-    async function createSetter(setterData) {
-        $.post('/api/setters', setterData).then((res) => {
-            setterId = res.id;
-        });
-    }
-
-
-
-    function createProblem(probData) {
-        $.post('/api/problems', probData).then((res) => {
-
-        });
+        $.post('/api/problems', probData).then((res) => {});
     };
-
 });

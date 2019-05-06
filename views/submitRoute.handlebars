@@ -21,6 +21,24 @@
     </ul>
   </div>
 </nav>
+{{!-- Modal --}}
+<div class="modal fade" id="submitModal" tabindex="-1" role="dialog" aria-labelledby="submitModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="submitModalLabel">Submit Complete</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+  
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick='window.location="/"'>Home</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Submit another route</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <h2>Please complete all THREE of these forms in order to submit a route.</h2>
 
@@ -113,7 +131,7 @@
   </div>
   </form>
   <div class="row">
-    <button type="button" id="routeSubmission" class="btn btn-secondary btn-lg">Submit Route</button>
+    <button type="button" id="routeSubmission" class="btn btn-secondary btn-lg" >Submit Route</button>
   </div>
 </div>
 
