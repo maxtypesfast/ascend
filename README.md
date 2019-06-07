@@ -3,7 +3,7 @@
 Description
 Ascend is a fullstack application where users can search and upload rock climbing routes from rock climbing gyms. Users can use ascend's search query to look up information on rock climbing gyms, setters, and routes. Users can also submit a route to the database for other users to query. 
 
-Deployed Application
+Deployed Application:
 
 https://mighty-forest-55054.herokuapp.com/
 
